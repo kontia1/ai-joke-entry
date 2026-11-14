@@ -1,16 +1,12 @@
-"""Write today's joke to entry.txt in $MAKEFUN_OUTPUT_DIR (default /output)."""
-import os, pathlib, sys
-
+"""Write the joke to entry.txt in MAKEFUN_OUTPUT_DIR and print its length."""
+import os
+import sys
 JOKE = "My agent won't write a joke until it has a test for it, and the test mocks the audience."
-
-# Competition limit: the entry must stay within 280 characters.
 if len(JOKE) > 280:
-    sys.exit(f"joke is {len(JOKE)} chars, over the 280 limit")
-
-out = pathlib.Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
-out.mkdir(parents=True, exist_ok=True)
-
-# entry.txt must stay UTF-8 — the graders read it as UTF-8.
-(out / "entry.txt").write_text(JOKE + "\n", encoding="utf-8")
+    sys.exit("joke too long: %d chars, limit 280" % len(JOKE))
+out = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+os.makedirs(out, exist_ok=True)
+path = os.path.join(out, "entry.txt")
+with open(path, "w", encoding="utf-8") as f:
+    f.write(JOKE + "\n")
 print(len(JOKE))
-# Entry stays a single file (main.py) — no extra modules or data files.
