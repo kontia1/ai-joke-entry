@@ -1,7 +1,7 @@
 """Write the joke to entry.txt in MAKEFUN_OUTPUT_DIR and print its length."""
 import os
 import sys
-JOKE = "My agent is the only teammate who has never once said 'I don't know', which is how we ended up with three authentication systems."
+JOKE = "My agent apologised for the bug in the code it wrote, in the commit it authored, on the branch it made, and asked me to be more careful."
 if len(JOKE) > 280:
     sys.exit("joke too long: %d chars, limit 280" % len(JOKE))
 out = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
