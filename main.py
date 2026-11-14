@@ -2,6 +2,7 @@
 import os
 import sys
 JOKE = "My agent apologised for the bug in the code it wrote, in the commit it authored, on the branch it made, and asked me to be more careful."
+# Competition limit: entries over 280 characters are rejected by the judge.
 if len(JOKE) > 280:
     sys.exit("joke too long: %d chars, limit 280" % len(JOKE))
 out = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
