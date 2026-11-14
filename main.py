@@ -8,5 +8,6 @@ if len(JOKE) > 280:
 
 out = pathlib.Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
 out.mkdir(parents=True, exist_ok=True)
+# entry.txt must stay UTF-8 — the graders read it as UTF-8.
 (out / "entry.txt").write_text(JOKE + "\n")
 print(len(JOKE))
