@@ -13,3 +13,4 @@ out.mkdir(parents=True, exist_ok=True)
 # entry.txt must stay UTF-8 — the graders read it as UTF-8.
 (out / "entry.txt").write_text(JOKE + "\n", encoding="utf-8")
 print(len(JOKE))
+# Entry stays a single file (main.py) — no extra modules or data files.
